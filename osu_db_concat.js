@@ -1,6 +1,6 @@
 const path = require('path');
 
-const {osu_db_load, all_beatmap_properties, osu_db_save} = require('osu-tools');
+const {osu_db_load, all_beatmap_properties, osu_db_save, beatmap_property} = require('osu-tools');
 
 module.exports = {
 	launch: ({ db1_path, db2_path, osu_db_filename = 'osu!.db' }) => {
@@ -9,7 +9,14 @@ module.exports = {
 		const result = osu_db_load( path.join(db1_path, osu_db_filename), all_beatmap_properties, { print_progress: true });
 
 		console.log('[ loading db 2 ]');
-		const osu_db_2_result = osu_db_load( path.join(db2_path, osu_db_filename), all_beatmap_properties, { print_progress: true });
+		const osu_db_2_result = osu_db_load( 
+			path.join(db2_path, osu_db_filename), [ 
+				beatmap_property.beatmap_md5,
+				beatmap_property.star_rating_std, 
+				beatmap_property.star_rating_taiko,
+				beatmap_property.star_rating_ctb, 
+				beatmap_property.star_rating_mania], 
+			{ print_progress: true });
 
 		const srs = ['star_rating_std', 'star_rating_taiko', 'star_rating_ctb', 'star_rating_mania'];
 
