@@ -1,16 +1,17 @@
 {
-  "name": "osu_db_calculation",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "update_and_start": "npm up && node index.js",
-	"start": "node index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "osu-tools": "github:ChervyachokMigo/osu-tools"
-  }
+	"name": "osu_db_calculation",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"update_and_start": "npm up && node index.js",
+		"start": "node index.js",
+		"concat": "set NODE_OPTIONS=\"--max-old-space-size=8192\" && node index.js concat"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"osu-tools": "github:ChervyachokMigo/osu-tools"
+	}
 }
